@@ -12,26 +12,26 @@ import java.util.LinkedList;
  * but "(]" and "([)]" are not.
  */
 public class Solution {
-    public boolean isValid(String s) {
-        String openBraces = "({[";
-        String closeBraces = ")}]";
-        int openCount = 0;
-        int closeCount = 0;
+    private final static String OPEN_BRACES = "({[";
+    private final static String CLOSE_BRACES = ")}]";
 
-        if (s.length() < 2 || closeBraces.indexOf(s.charAt(0)) != -1)
+    public boolean isValid(String s) {
+        if (s.length() < 2 || CLOSE_BRACES.indexOf(s.charAt(0)) != -1)
             return false;
 
+        int openCount = 0;
+        int closeCount = 0;
         int index = 0;
         LinkedList<Integer> stack = new LinkedList<>();
 
         while (index < s.length()) {
-            while (index < s.length() && openBraces.indexOf(s.charAt(index)) != -1) {
-                stack.push(openBraces.indexOf(s.charAt(index)));
+            while (index < s.length() && OPEN_BRACES.indexOf(s.charAt(index)) != -1) {
+                stack.push(OPEN_BRACES.indexOf(s.charAt(index)));
                 openCount++;
                 index++;
             }
-            while (index < s.length() && closeBraces.indexOf(s.charAt(index)) != -1) {
-                if (stack.size() > 0 && stack.pop() != closeBraces.indexOf(s.charAt(index)))
+            while (index < s.length() && CLOSE_BRACES.indexOf(s.charAt(index)) != -1) {
+                if (stack.size() > 0 && stack.pop() != CLOSE_BRACES.indexOf(s.charAt(index)))
                     return false;
                 closeCount++;
                 index++;
