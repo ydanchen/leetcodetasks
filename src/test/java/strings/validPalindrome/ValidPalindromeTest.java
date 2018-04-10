@@ -8,6 +8,7 @@ import org.junit.runners.Parameterized.Parameters;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -38,6 +39,12 @@ public class ValidPalindromeTest {
     @Test
     public void isPalindromeSuite() {
         Solution solution = new Solution();
-        assertThat(solution.isPalindrome(value), is(expected));
+        assertThat(solution.isPalindrome(value), is(equalTo(expected)));
+    }
+
+    @Test
+    public void isPalindromeFunctionalSuite() {
+        Solution solution = new Solution();
+        assertThat(solution.isPalindromeFun(value), is(equalTo(expected)));
     }
 }
