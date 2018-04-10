@@ -36,7 +36,7 @@ import java.util.List;
 public class Solution {
     public List<String> fizzBuzz(int n) {
         List<String> result = new ArrayList<>();
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= n; i++) {
             sb.delete(0, sb.length());
             if (i % 3 == 0) sb.append("Fizz");
