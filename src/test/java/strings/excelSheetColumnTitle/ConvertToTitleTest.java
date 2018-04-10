@@ -1,5 +1,6 @@
 package strings.excelSheetColumnTitle;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -16,6 +17,7 @@ import static org.junit.Assert.assertThat;
 public class ConvertToTitleTest {
     private int value;
     private String expected;
+    private Solution solution;
 
     public ConvertToTitleTest(int value, String expected) {
         this.value = value;
@@ -38,9 +40,13 @@ public class ConvertToTitleTest {
         });
     }
 
+    @Before
+    public void init() {
+        solution = new Solution();
+    }
+
     @Test
     public void convertToTitleSuite() {
-        Solution solution = new Solution();
         assertThat(solution.convertToTitle(value), is(equalTo(expected)));
     }
 }

@@ -1,5 +1,6 @@
 package strings.isValidParentheses;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -15,6 +16,7 @@ import static org.junit.Assert.assertThat;
 public class IsValidParenthesesTest {
     private String inputValue;
     private boolean expected;
+    private Solution solution;
 
     public IsValidParenthesesTest(String inputValue, boolean expected) {
         this.inputValue = inputValue;
@@ -38,9 +40,13 @@ public class IsValidParenthesesTest {
         });
     }
 
+    @Before
+    public void init() {
+        solution = new Solution();
+    }
+
     @Test
     public void isValidParenthesesSuite() {
-        Solution solution = new Solution();
         assertThat(solution.isValid(inputValue), is(expected));
     }
 }

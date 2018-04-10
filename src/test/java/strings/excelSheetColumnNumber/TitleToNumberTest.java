@@ -1,5 +1,6 @@
 package strings.excelSheetColumnNumber;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -16,6 +17,7 @@ import static org.junit.Assert.assertThat;
 public class TitleToNumberTest {
     private String value;
     private int expected;
+    private Solution solution;
 
     public TitleToNumberTest(String value, int expected) {
         this.value = value;
@@ -38,9 +40,13 @@ public class TitleToNumberTest {
         });
     }
 
+    @Before
+    public void init() {
+        solution = new Solution();
+    }
+
     @Test
     public void titleToNumberSuite() {
-        Solution solution = new Solution();
         assertThat(solution.titleToNumber(value), is(equalTo(expected)));
     }
 }

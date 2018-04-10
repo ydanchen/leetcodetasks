@@ -1,5 +1,6 @@
 package strings.validPalindrome;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -16,6 +17,7 @@ import static org.junit.Assert.assertThat;
 public class ValidPalindromeTest {
     private String value;
     private boolean expected;
+    private Solution solution;
 
     public ValidPalindromeTest(String value, boolean expected) {
         this.value = value;
@@ -36,15 +38,18 @@ public class ValidPalindromeTest {
         });
     }
 
+    @Before
+    public void init() {
+        solution = new Solution();
+    }
+
     @Test
     public void isPalindromeSuite() {
-        Solution solution = new Solution();
         assertThat(solution.isPalindrome(value), is(equalTo(expected)));
     }
 
     @Test
     public void isPalindromeFunctionalSuite() {
-        Solution solution = new Solution();
         assertThat(solution.isPalindromeFun(value), is(equalTo(expected)));
     }
 }

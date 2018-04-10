@@ -1,6 +1,7 @@
 package linkedList.addTwoNumbers;
 
 import linkedList.ListNode;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -18,6 +19,7 @@ public class AddTwoNumbersTest {
     private ListNode firstNumber;
     private ListNode secondNumber;
     private ListNode expected;
+    private Solution solution;
 
     public AddTwoNumbersTest(ListNode firstNumber, ListNode secondNumber, ListNode expected) {
         this.firstNumber = firstNumber;
@@ -37,9 +39,13 @@ public class AddTwoNumbersTest {
         });
     }
 
+    @Before
+    public void init() {
+        solution = new Solution();
+    }
+
     @Test
     public void addTwoNumbersSuite() {
-        Solution solution = new Solution();
         assertThat(solution.addTwoNumbers(firstNumber, secondNumber).toArray(), is(equalTo(expected.toArray())));
     }
 }

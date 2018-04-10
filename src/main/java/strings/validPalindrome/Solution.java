@@ -21,7 +21,7 @@ import java.util.stream.IntStream;
  */
 public class Solution {
     /**
-     * Determines whether the passed string ia a palindrome or not
+     * Determines whether the passed string is a palindrome or not
      * Imperative approach
      *
      * @return true if s is a valid palindrome
@@ -40,7 +40,7 @@ public class Solution {
     }
 
     /**
-     * Determines whether the passed string ia a palindrome or not
+     * Determines whether the passed string is a palindrome or not
      * Functional approach
      *
      * @return true if s is a valid palindrome

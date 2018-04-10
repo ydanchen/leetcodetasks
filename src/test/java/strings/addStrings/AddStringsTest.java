@@ -1,5 +1,6 @@
 package strings.addStrings;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -17,6 +18,7 @@ public class AddStringsTest {
     private String firstNumber;
     private String secondNumber;
     private String expected;
+    private Solution solution;
 
     public AddStringsTest(String firstNumber, String secondNumber, String expected) {
         this.firstNumber = firstNumber;
@@ -35,9 +37,13 @@ public class AddStringsTest {
         });
     }
 
+    @Before
+    public void init() {
+        solution = new Solution();
+    }
+
     @Test
     public void addStringsSuite() {
-        Solution solution = new Solution();
         assertThat(solution.addStrings(firstNumber, secondNumber), is(equalTo(expected)));
     }
 }

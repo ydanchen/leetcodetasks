@@ -1,4 +1,4 @@
-package integers.reverseInteger;
+package arrays.moveZeroes;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,23 +14,22 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @RunWith(Parameterized.class)
-public class ReverseTest {
-    private int value;
-    private int expected;
+public class MoveZeroesTest {
+    private int[] value;
+    private int[] expected;
     private Solution solution;
 
-    public ReverseTest(int value, int expected) {
+    public MoveZeroesTest(int[] value, int[] expected) {
         this.value = value;
         this.expected = expected;
     }
 
-    @Parameters(name = "{index}: reverse({0}) = {1}")
+    @Parameters(name = "{index}: moveZeroes({0}) = {1}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {123, 321},
-                {-123, -321},
-                {120, 21},
-                {123456789, 987654321}
+                {new int[]{0, 1, 0, 3, 12}, new int[]{1, 3, 12, 0, 0}},
+                {new int[]{2, 1}, new int[]{2, 1}},
+                {new int[]{0, 0, 1}, new int[]{1, 0, 0}}
         });
     }
 
@@ -40,7 +39,8 @@ public class ReverseTest {
     }
 
     @Test
-    public void ReverseSuite() {
-        assertThat(solution.reverse(value), is(equalTo(expected)));
+    public void moveZeroesSuite() {
+        solution.moveZeroes(value);
+        assertThat(value, is(equalTo(expected)));
     }
 }

@@ -1,5 +1,6 @@
 package strings.addBinary;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -17,6 +18,7 @@ public class AddBinaryTest {
     private String firstValue;
     private String secondValue;
     private String expected;
+    private Solution solution;
 
     public AddBinaryTest(String firstValue, String secondValue, String expected) {
         this.firstValue = firstValue;
@@ -35,9 +37,13 @@ public class AddBinaryTest {
         });
     }
 
+    @Before
+    public void init() {
+        solution = new Solution();
+    }
+
     @Test
     public void addBinarySuite() {
-        Solution solution = new Solution();
         assertThat(solution.addBinary(firstValue, secondValue), is(equalTo(expected)));
     }
 }
