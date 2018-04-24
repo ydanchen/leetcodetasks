@@ -17,21 +17,22 @@ package strings.shortestToChar;
  */
 public class Solution {
     public int[] shortestToChar(String S, char C) {
-        int[] result = new int[S.length()];
+        int length = S.length();
+        int[] result = new int[length];
         int l = 0, r = 0;
         int lmin, rmin;
-        for (int i = 0; i < S.length(); i++) {
+        for (int i = 0; i < length; i++) {
             if (S.charAt(i) == C) {
                 result[i] = 0;
                 continue;
             } else {
                 l = i - 1;
                 r = i + 1;
-                lmin = S.length();
-                rmin = S.length();
-                while (l >= 0 || r < S.length()) {
+                lmin = length;
+                rmin = length;
+                while (l >= 0 || r < length) {
                     if (l >= 0 && S.charAt(l) == C && i - l < lmin) lmin = i - l;
-                    if (r < S.length() && S.charAt(r) == C && r - i < rmin) rmin = r - i;
+                    if (r < length && S.charAt(r) == C && r - i < rmin) rmin = r - i;
                     l--;
                     r++;
                 }
