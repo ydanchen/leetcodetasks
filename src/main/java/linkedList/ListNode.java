@@ -36,7 +36,6 @@ public class ListNode {
         if (o == null) return false;
         if (this == o) return true;
         if (!(o instanceof ListNode)) return false;
-
         ListNode me = this;
         ListNode that = (ListNode) o;
         while (me != null && that != null) {
@@ -44,7 +43,6 @@ public class ListNode {
             me = me.next;
             that = that.next;
         }
-
         return true;
     }
 
