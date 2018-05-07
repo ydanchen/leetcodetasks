@@ -2,7 +2,6 @@ package linkedList;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.StringJoiner;
 
 /**
@@ -30,6 +29,23 @@ public class ListNode {
             node = node.next;
         } while (node != null);
         return sj.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (this == o) return true;
+        if (!(o instanceof ListNode)) return false;
+
+        ListNode me = this;
+        ListNode that = (ListNode) o;
+        while (me != null && that != null) {
+            if (me.val != that.val) return false;
+            me = me.next;
+            that = that.next;
+        }
+
+        return true;
     }
 
     /**
