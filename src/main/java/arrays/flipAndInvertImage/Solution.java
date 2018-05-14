@@ -44,7 +44,7 @@ public class Solution {
 
     private void invertArray(int[] items) {
         for (int i = 0; i < items.length; i++)
-            items[i] = items[i] == 0 ? 1 : 0;
+            items[i] ^= 1;
     }
 
     private void flipArray(int[] items) {
