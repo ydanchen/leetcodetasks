@@ -41,7 +41,7 @@ public class TwoSumTest {
     }
 
     @Test
-    public void TwoSumSuite() {
+    public void twoSumSuite() {
         int[] result = solution.twoSum(values, target);
         assertThat(result, is(equalTo(expected)));
     }

@@ -40,7 +40,7 @@ public class ReverseTest {
     }
 
     @Test
-    public void ReverseSuite() {
+    public void reverseSuite() {
         assertThat(solution.reverse(value), is(equalTo(expected)));
     }
 }
